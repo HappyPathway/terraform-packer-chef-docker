@@ -15,7 +15,7 @@ resource "local_file" "ecnrypted_data_bag_secret" {
 data "template_file" "packer_config" {
     depends_on = [
         "local_file.chef_validator",
-        "Local_file.ecnrypted_data_bag_secret",
+        "local_file.ecnrypted_data_bag_secret",
     ]
     vars = {
         CHEF_VALIDATION_KEY = "${path.root}/chef_validator.pem"
@@ -42,7 +42,7 @@ resource "local_file" "packer_config" {
 resource "null_resource" "packer_build" {
     depends_on = [
         "local_file.chef_validator",
-        "Local_file.ecnrypted_data_bag_secret",
+        "local_file.ecnrypted_data_bag_secret",
         "local_file.packer_config"
     ]
   triggers = {
