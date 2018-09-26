@@ -40,7 +40,8 @@ resource "local_file" "packer_config" {
 
 resource "null_resource" "packer_build" {
     depends_on = [
-        "null_resource.configure_chef",
+        "local_file.chef_validator",
+        "Local_file.ecnrypted_data_bag_secret",
         "local_file.packer_config"
     ]
   triggers = {

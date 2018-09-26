@@ -21,3 +21,5 @@ variable "docker_repo" {}
 variable "docker_registry" {}
 variable "docker_username" {}
 variable "docker_password" {}
+
+variable "source_image" {}
