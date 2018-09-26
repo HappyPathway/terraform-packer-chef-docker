@@ -7,3 +7,9 @@
 
 # .tfvars files
 *.tfvars
+
+# Chef Files
+chef_encrypted_data_bag_secret.pem
+chef_validator.pem
+
+.vagrant
