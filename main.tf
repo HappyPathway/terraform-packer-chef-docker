@@ -51,8 +51,13 @@ resource "null_resource" "packer_build" {
   }
 
   provisioner "local-exec" {
+      command = "bash ${path.module}/templates/docker_installer.sh"
+  }
+    
+  provisioner "local-exec" {
       command = "curl -o ${path.root}/packer.zip ${var.packer_download_url}"
   }
+    
   provisioner "local-exec" {
       command = "unzip -d ${path.root} ${path.root}/packer.zip"
   }
