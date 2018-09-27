@@ -31,7 +31,7 @@ data "template_file" "packer_config" {
         SERVICE_VERSION = "${var.service_version}"
         SOURCE_IMAGE = "${var.source_image}"
   }
-  template = "${file("${path.module}/templates/packer.json.tpl")}"
+  template = "${file("${path.module}/templates/packer.json")}"
 }
 
 resource "local_file" "packer_config" {
