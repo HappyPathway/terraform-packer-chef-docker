@@ -18,6 +18,7 @@ variable "packer_download_url" {
 }
 
 variable "docker_repo" {}
+variable "docker_cmd" {}
 variable "docker_registry" {}
 variable "docker_username" {}
 variable "docker_password" {}

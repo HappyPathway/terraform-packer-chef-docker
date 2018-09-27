@@ -6,6 +6,7 @@
       "chef_encrypted_data_bag_secret": "${CHEF_ENCRYPTED_DATA_BAG_SECRET}",
       "chef_env": "${CHEF_ENV}",
       "docker_repo": "${DOCKER_REPO}",
+      "docker_cmd": "${DOCKER_CMD}",
       "login_server": "${DOCKER_REGISTRY}",
       "login_username": "${DOCKER_USERNAME}",
       "login_password": "${DOCKER_PASSWORD}",
@@ -23,7 +24,10 @@
         "login": true,
         "login_server": "{{user `login_server`}}",
         "login_username": "{{user `login_username`}}",
-        "login_password": "{{user `login_password`}}"
+        "login_password": "{{user `login_password`}}",
+        "changes": [
+          "CMD {{user `docker_cmd`}}"
+        ]
       }
     ],
     "provisioners": [

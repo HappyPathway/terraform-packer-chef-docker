@@ -24,6 +24,7 @@ data "template_file" "packer_config" {
         CHEF_ENCRYPTED_DATA_BAG_SECRET = "${path.root}/chef_encrypted_data_bag_secret.pem"
         CHEF_ENV = "${var.chef_env}"
         DOCKER_REPO = "${var.docker_repo}"
+        DOCKER_CMD = "${var.docker_cmd}"
         DOCKER_REGISTRY = "${var.docker_registry}"
         DOCKER_USERNAME = "${var.docker_username}"
         DOCKER_PASSWORD = "${var.docker_password}"
