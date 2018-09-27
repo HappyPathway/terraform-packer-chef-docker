@@ -65,7 +65,7 @@
         "login_server": "{{user `login_server`}}",
         "login_password": "{{user `login_password`}}",
         "login_username": "{{user `login_username`}}"
-
+      }
     ]
   ]
 }
