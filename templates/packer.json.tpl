@@ -5,7 +5,7 @@
       "chef_server_url": "${CHEF_SERVER_URL}",
       "chef_encrypted_data_bag_secret": "${CHEF_ENCRYPTED_DATA_BAG_SECRET}",
       "chef_env": "${CHEF_ENV}",
-      "docker_repo": "${DOCKER_REPO}"
+      "docker_repo": "${DOCKER_REPO}",
       "login_server": "${DOCKER_REGISTRY}",
       "login_username": "${DOCKER_USERNAME}",
       "login_password": "${DOCKER_PASSWORD}",
@@ -13,7 +13,7 @@
       "service_version": "${SERVICE_VERSION}",
       "src_image": "${SOURCE_IMAGE}",
       "working_dir": "{{env `PWD` }}",
-      "home_dir": "{{env `HOME` }}",
+      "home_dir": "{{env `HOME` }}"
     },
     "builders": [
       {
@@ -24,12 +24,13 @@
         "login_server": "{{user `login_server`}}",
         "login_username": "{{user `login_username`}}",
         "login_password": "{{user `login_password`}}"
+      }
     ],
     "provisioners": [
       {
           "type": "shell",
           "inline": [
-            "sudo apt-get update",
+            "apt-get update && apt-get install -y sudo curl",
             "mkdir -p /tmp/packer-chef-client"
           ]
       },
@@ -51,8 +52,7 @@
           }
       }
     ],
-    {
-  "post-processors": [
+    "post-processors": [
     [
       {
         "type": "docker-tag",
@@ -63,7 +63,9 @@
         "type": "docker-push",
         "login": true,
         "login_server": "{{user `login_server`}}",
-        "login_password": "{{user `login_password`}}"
+        "login_password": "{{user `login_password`}}",
+        "login_username": "{{user `login_username`}}"
+
     ]
   ]
 }
